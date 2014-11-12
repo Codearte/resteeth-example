@@ -1,5 +1,6 @@
 package eu.codearte.resteeth.example;
 
+import eu.codearte.resteeth.annotation.RestClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class ClientTest {
 
     @Autowired
+    @RestClient(endpoints = "http://localhost:8080")
     Client client;
 
     @Test
     public void shouldTalkWithClient() {
-        System.out.println(client);
         System.out.println(client.echo("foo"));
 
     }
